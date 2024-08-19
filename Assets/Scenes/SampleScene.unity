@@ -1988,6 +1988,8 @@ GameObject:
   - component: {fileID: 870118066}
   - component: {fileID: 870118065}
   - component: {fileID: 870118067}
+  - component: {fileID: 870118069}
+  - component: {fileID: 870118068}
   m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
@@ -2079,9 +2081,33 @@ MonoBehaviour:
   keydown: 274
   derecha: 275
   izq: 276
+--- !u!114 &870118068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870118064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013cacf0daa284348a29820764b87a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorrandom: 114
+--- !u!114 &870118069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870118064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de37508cd1795cc44af4a8ae2761346a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotdere: 101
   rotizq: 113
-  colorrandom: 114
 --- !u!1 &1060073223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,6 +2119,8 @@ GameObject:
   - component: {fileID: 1060073225}
   - component: {fileID: 1060073224}
   - component: {fileID: 1060073226}
+  - component: {fileID: 1060073228}
+  - component: {fileID: 1060073227}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Untagged
@@ -2184,9 +2212,33 @@ MonoBehaviour:
   keydown: 115
   derecha: 100
   izq: 97
+--- !u!114 &1060073227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060073223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 013cacf0daa284348a29820764b87a7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorrandom: 114
+--- !u!114 &1060073228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060073223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de37508cd1795cc44af4a8ae2761346a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   rotdere: 101
   rotizq: 113
-  colorrandom: 114
 --- !u!1 &1080214463
 GameObject:
   m_ObjectHideFlags: 0
