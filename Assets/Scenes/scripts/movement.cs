@@ -4,14 +4,14 @@ using UnityEngine.UIElements;
 
 public class movement : MonoBehaviour
 {
-    public float speed = 0.01f;
-    public KeyCode keyup = KeyCode.W;
-    public KeyCode keydown = KeyCode.S;
-    public KeyCode derecha = KeyCode.D;
-    public KeyCode izq = KeyCode.A;
-    public KeyCode rotdere = KeyCode.E;
-    public KeyCode rotizq = KeyCode.Q;
-    public KeyCode colorrandom = KeyCode.R;
+    [SerializeField] private float speed = 0.01f;
+    [SerializeField] private KeyCode keyup = KeyCode.W;
+    [SerializeField] private KeyCode keydown = KeyCode.S;
+    [SerializeField] private KeyCode derecha = KeyCode.D;
+    [SerializeField] private KeyCode izq = KeyCode.A;
+    [SerializeField] private KeyCode rotdere = KeyCode.E;
+    [SerializeField] private KeyCode rotizq = KeyCode.Q;
+    [SerializeField] private KeyCode colorrandom = KeyCode.R;
     private SpriteRenderer spriterenderer;
 
    
@@ -69,7 +69,10 @@ public class movement : MonoBehaviour
 
     }
 
-
+    public void setspeed(float movementSpeed)
+    {
+        speed = movementSpeed;
+    }
 
     }
 
