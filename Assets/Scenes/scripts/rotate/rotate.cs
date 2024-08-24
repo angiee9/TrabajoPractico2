@@ -17,7 +17,7 @@ public class rotate : MonoBehaviour
 
         if (Input.GetKeyDown(rotdere))
         {
-            transform.Rotate(0f, 0f, -10f));
+            transform.Rotate(0f, 0f, -10f);
         }
         if (Input.GetKeyDown(rotizq))
         {
