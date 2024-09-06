@@ -4,24 +4,30 @@ using UnityEngine;
 
 public class position : MonoBehaviour
 {
-    [SerializeField] private GameObject player1;
-    [SerializeField] private GameObject player2;
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float movementSpeed = 0.01f;
+    [SerializeField] private bool Player;
+    [SerializeField] private float ylimit = 3.51f;
 
-    void Update()
+
+   private void Update()
     {
-       
-       
-        if (transform.position.y > 3.8f)
+
+        float movement;
+
+        if (Player)
         {
-            transform.position = new Vector2(transform.position.x, 3.8f);
+            movement = Input.GetAxisRaw("Vertical");
+
         }
-        if (transform.position.y < -3.8f)
+        else
         {
-            transform.position = new Vector2(transform.position.x, -3.8f);
+            movement = Input.GetAxisRaw("Vertical2");
         }
+
+        Vector2 playerPosition = transform.position;
+        playerPosition.y = Mathf.Clamp(playerPosition.y + movement * movementSpeed * Time.deltaTime, -ylimit, ylimit);
+        transform.position = playerPosition;
+
     }
 }
+
