@@ -6,7 +6,7 @@ using UnityEngine.WSA;
 public class ball : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D ballrb;
-    [SerializeField] private float initialV = 4f;
+    [SerializeField] private float initialV = 0.7f;
     [SerializeField] private float velocityM = 1.0f;    
 
     
@@ -20,26 +20,16 @@ public class ball : MonoBehaviour
 
     private void Launch()
     {
-        float xVelocity = Random.Range(0, 5);
-        float yVelocity = Random.Range(0, 5);
-
-        if (xVelocity == 0)
+        Vector2 velocity = Vector2.zero;
+        do
         {
-            xVelocity = 1;
-        }
-        else
-        {
-            xVelocity = -1;
-        }
-        if (yVelocity == 0)
-        {
-            yVelocity = 1;
-        }
-        else
-        { 
-            yVelocity = -1;
-        }
-        ballrb.velocity = new Vector2 (xVelocity, yVelocity * initialV);
+            velocity.x = Random.Range(-5, 5);
+            velocity.y = Random.Range(-5, 5);
+            velocity.Normalize();
+        } while (Mathf.Abs(velocity.y) > Mathf.Abs(velocity.x));
+        
+        
+        ballrb.velocity = velocity * initialV;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,4 +39,21 @@ public class ball : MonoBehaviour
             ballrb.velocity *= velocityM;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("goal1"))
+        {
+            Gamemanagerr.Instance.Player2Scored();
+            Gamemanagerr.Instance.Restart();
+            Launch();
+        }
+        else
+        {
+            Gamemanagerr.Instance.Player1Scored();
+            Gamemanagerr.Instance.Restart();
+            Launch();
+        }
+    }
+
 }

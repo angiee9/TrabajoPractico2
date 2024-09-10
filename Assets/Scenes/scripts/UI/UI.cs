@@ -22,6 +22,15 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI valor2;
     [SerializeField] private Button backButton1;
     [SerializeField] private Button backButton2;
+    [SerializeField] private Slider scaleSlider1;
+    [SerializeField] private Slider scaleSlider2;
+    [SerializeField] private Transform scalePlayer1;
+    [SerializeField] private Transform scalePlayer2;
+    [SerializeField] private float scaleMaxValue;
+    [SerializeField] private float scaleMinValue;
+    
+
+
 
     private void Awake()
     {
@@ -33,14 +42,31 @@ public class UI : MonoBehaviour
         speedSlider2.onValueChanged.AddListener(OnSpeedSlider2);
         backButton1.onClick.AddListener(OnBackButton1Clicked);
         backButton2.onClick.AddListener(OnBackButton2Clicked);
+        scaleSlider1.onValueChanged.AddListener(OnScaleSlider1);
+        scaleSlider2.onValueChanged.AddListener(OnScaleSlider2);
+
+
+       
+
+
     }
 
-    
+    private void Start()
+    {
+       
+      
+        scaleSlider1.minValue = scaleMinValue;
+        scaleSlider1.maxValue = scaleMaxValue;
+        scaleSlider2.minValue = scaleMinValue;
+        scaleSlider2.maxValue = scaleMaxValue;
+    }
 
-    
 
 
-    
+
+
+
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
@@ -49,12 +75,14 @@ public class UI : MonoBehaviour
             if (!pausePanel.activeSelf && !settingsPanel.activeSelf && !creditsPanel.activeSelf) 
             {
                 pausePanel.SetActive(true);
+                Time.timeScale = 0;
             }
              else
             {
                 pausePanel.SetActive(false);
+                Time.timeScale = 1;
 
-             }
+            }
         }
     }
 
@@ -102,6 +130,7 @@ public class UI : MonoBehaviour
     private void OnPlayButtonClicked()
     {
         pausePanel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void OnSpeedSlider1(float speed)
@@ -116,6 +145,21 @@ public class UI : MonoBehaviour
         valor2.text = speed.ToString("F1");
     }
 
+    private void OnScaleSlider1(float value) 
+    {
+        
+        scalePlayer1.transform.localScale = new Vector3(0.49f,value, 0.49f);
+    }
 
+    private void OnScaleSlider2(float value)
+    {
+
+        scalePlayer2.transform.localScale = new Vector3(0.49f, value, 0.49f);
+    }
+
+
+    
 }
+
+
 
